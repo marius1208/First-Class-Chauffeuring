@@ -1,0 +1,778 @@
+:root {
+  --bg: #090909;
+  --panel: #111111;
+  --panel-strong: #161616;
+  --text: #f3efe7;
+  --muted: #b3aa9b;
+  --line: rgba(212, 176, 94, 0.18);
+  --accent: #d4b05e;
+  --accent-soft: #9b8450;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --container: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(212, 176, 94, 0.16), transparent 22%),
+    radial-gradient(circle at 88% 14%, rgba(255, 255, 255, 0.06), transparent 18%),
+    radial-gradient(circle at 50% 42%, rgba(212, 176, 94, 0.08), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0%, transparent 32%),
+    linear-gradient(180deg, #111111 0%, #0a0a0a 38%, #070707 100%);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.75));
+  opacity: 0.22;
+}
+
+body::after {
+  background:
+    radial-gradient(circle at center, transparent 48%, rgba(0, 0, 0, 0.52) 100%),
+    radial-gradient(circle at 50% 0%, rgba(212, 176, 94, 0.08), transparent 30%);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-shell {
+  width: min(calc(100% - 32px), var(--container));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  backdrop-filter: blur(16px);
+  background: rgba(9, 9, 9, 0.72);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  background: #050505;
+}
+
+.brand-text {
+  display: grid;
+}
+
+.brand-text strong {
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.brand-text small {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.site-nav a {
+  color: var(--muted);
+  transition: color 180ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--text);
+}
+
+.nav-toggle {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  width: 18px;
+  height: 1.5px;
+  background: var(--text);
+}
+
+.hero {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0 36px;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 860px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--accent);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.hero-kicker::before,
+.hero-kicker::after {
+  content: "";
+  width: 52px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 176, 94, 0.7), transparent);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  line-height: 1.02;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  max-width: 13ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+h1 span {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 1em;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: clamp(2.3rem, 4vw, 4rem);
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+.lead,
+.section-heading p,
+.card p,
+.fleet-body p,
+.point p,
+.testimonial p,
+.contact-card p,
+.footer p {
+  color: var(--muted);
+}
+
+.lead {
+  max-width: 62ch;
+  margin: 26px 0 0;
+  font-size: 1.05rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin: 34px 0 26px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 176, 94, 0.42);
+  color: #111;
+  background: linear-gradient(135deg, #e0c170 0%, #c29a43 100%);
+  font-weight: 700;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  box-shadow: 0 12px 30px rgba(194, 154, 67, 0.22);
+}
+
+.site-nav .button {
+  color: #050505;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(194, 154, 67, 0.28);
+}
+
+.button-sm {
+  min-height: 44px;
+  padding: 0 18px;
+}
+
+.button-ghost {
+  color: var(--text);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+}
+
+.button-ghost:hover,
+.button-ghost:focus-visible {
+  border-color: rgba(212, 176, 94, 0.42);
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlights li {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.trust-bar,
+.card,
+.fleet-card,
+.about-points,
+.testimonial,
+.contact-card,
+.booking-form {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: var(--shadow);
+}
+
+.trust-bar {
+  margin: 0 0 44px;
+  padding: 18px 24px;
+  border-radius: 18px;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.section-alt {
+  position: relative;
+}
+
+.section-alt::before {
+  content: "";
+  position: absolute;
+  inset: 14% -5%;
+  background: radial-gradient(circle, rgba(212, 176, 94, 0.11), transparent 52%);
+  filter: blur(52px);
+  z-index: -1;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 36px;
+}
+
+.contact-section .section-heading {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: 22px;
+}
+
+.service-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
+  padding: 26px;
+  border-radius: var(--radius);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 176, 94, 0.25);
+}
+
+.card-index {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  font-size: 0.78rem;
+}
+
+.fleet-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.fleet-card {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.fleet-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.fleet-shot {
+  min-height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fleet-shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.15), rgba(10, 10, 10, 0.42));
+}
+
+.fleet-image-sclass {
+  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz%20S-Klasse%20%287027313273%29.jpg") center/cover;
+}
+
+.fleet-image-eclass {
+  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz%20E-Class%20%2848822422251%29.jpg") center/cover;
+}
+
+.fleet-image-vclass {
+  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz%20V-class.jpg") center/cover;
+}
+
+.fleet-image-sclass-interior {
+  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes%20S-Class%20Interior%20%28W222%29.jpg") center/cover;
+}
+
+.fleet-image-eclass-interior {
+  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/2023%20Mercedes-Benz%20E-Class%20interior.jpg") center/cover;
+}
+
+.fleet-image-vclass-interior {
+  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz%20V-Class%20interior.jpg") center/cover;
+}
+
+.fleet-body {
+  padding: 24px;
+}
+
+.fleet-body ul {
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.about-points {
+  padding: 28px;
+  border-radius: var(--radius);
+}
+
+.point + .point {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.point strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+.testimonial-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.testimonial {
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.testimonial span {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--accent);
+  font-size: 0.92rem;
+}
+
+.contact-layout {
+  display: flex;
+  justify-content: center;
+}
+
+.payment-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+}
+
+.payment-panel {
+  padding: 30px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: var(--shadow);
+}
+
+.payment-panel-soft {
+  background:
+    radial-gradient(circle at top right, rgba(212, 176, 94, 0.12), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+}
+
+.payment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 24px 0 18px;
+}
+
+.payment-note {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.92rem;
+}
+
+.payment-list {
+  margin: 20px 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.contact-card,
+.booking-form {
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.contact-card {
+  padding: 22px 22px 18px;
+}
+
+.contact-card h3 {
+  margin-bottom: 10px;
+}
+
+.contact-card a {
+  display: block;
+  width: fit-content;
+  margin: 10px 0;
+  color: var(--text);
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: min(100%, 820px);
+  margin: 0 auto;
+}
+
+.booking-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.hidden-field {
+  position: absolute;
+  left: -9999px;
+}
+
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  border-radius: 16px;
+  padding: 14px 16px;
+  font: inherit;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.booking-form input:focus,
+.booking-form textarea:focus {
+  outline: none;
+  border-color: rgba(212, 176, 94, 0.45);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.footer {
+  margin-top: 24px;
+  padding: 36px 0 42px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr 0.9fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.footer-brand {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #050505;
+  flex-shrink: 0;
+}
+
+.footer-brand h3,
+.footer-column h4 {
+  margin-bottom: 12px;
+}
+
+.footer-column h4 {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.footer-column {
+  display: grid;
+  gap: 10px;
+}
+
+.footer-column a,
+.footer-column span,
+.footer-bottom a,
+.footer-bottom p {
+  color: var(--muted);
+}
+
+.footer-bottom {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1100px) {
+  .service-grid,
+  .fleet-grid,
+  .testimonial-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero,
+  .split,
+  .contact-layout,
+  .payment-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    width: min(calc(100% - 24px), var(--container));
+  }
+
+  .hero-kicker::before,
+  .hero-kicker::after {
+    width: 34px;
+  }
+
+  .brand-logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(9, 9, 9, 0.96);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .service-grid,
+  .fleet-grid,
+  .testimonial-grid,
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+
+  .fleet-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 26px;
+  }
+
+  .footer {
+    padding-bottom: 28px;
+  }
+
+  .footer-grid,
+  .footer-bottom,
+  .footer-brand {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
