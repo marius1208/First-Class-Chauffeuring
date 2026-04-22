@@ -613,7 +613,7 @@ h3 {
   display: grid;
   grid-template-columns: 1.4fr 0.8fr;
   gap: 28px;
-  align-items: start;
+  align-items: center;
 }
 
 .footer-column h4 {
@@ -626,6 +626,12 @@ h3 {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: var(--shadow);
+  max-width: 760px;
+  width: 100%;
+}
+
+.footer-map-copy {
+  text-align: center;
 }
 
 .footer-map-copy p {
@@ -637,6 +643,8 @@ h3 {
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   min-height: 260px;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 .footer-map-frame iframe {
@@ -658,6 +666,8 @@ h3 {
 .footer-column {
   display: grid;
   gap: 10px;
+  justify-items: center;
+  text-align: center;
 }
 
 .footer-column a,
