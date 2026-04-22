@@ -423,15 +423,15 @@ h3 {
 }
 
 .fleet-image-sclass {
-  background: url("S_Class_Exterior.png") center/cover;
+  background: url("assets/images/S_Class_Exterior.png") center/cover;
 }
 
 .fleet-image-eclass {
-  background: url("E_Class_Exterior.png") center/cover;
+  background: url("assets/images/E_Class_Exterior.png") center/cover;
 }
 
 .fleet-image-vclass {
-  background: url("V_Class_Exterior.png") center/cover;
+  background: url("assets/images/V_Class_Exterior.png") center/cover;
 }
 
 .fleet-image-sclass-interior {
