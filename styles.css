@@ -423,15 +423,15 @@ h3 {
 }
 
 .fleet-image-sclass {
-  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz%20S-Klasse%20%287027313273%29.jpg") center/cover;
+  background: url("S_Class_Exterior.png") center/cover;
 }
 
 .fleet-image-eclass {
-  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz%20E-Class%20%2848822422251%29.jpg") center/cover;
+  background: url("E_Class_Exterior.png") center/cover;
 }
 
 .fleet-image-vclass {
-  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz%20V-class.jpg") center/cover;
+  background: url("V_Class_Exterior.png") center/cover;
 }
 
 .fleet-image-sclass-interior {
