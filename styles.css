@@ -410,9 +410,11 @@ h3 {
 }
 
 .fleet-shot {
-  min-height: 250px;
+  min-height: 228px;
   position: relative;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .fleet-shot::after {
@@ -423,27 +425,33 @@ h3 {
 }
 
 .fleet-image-sclass {
-  background: url("assets/images/S_Class_Exterior.png") center/cover;
+  background-image: url("assets/images/S_Class_Exterior.png");
+  background-position: center 58%;
 }
 
 .fleet-image-eclass {
-  background: url("assets/images/E_Class_Exterior.png") center/cover;
+  background-image: url("assets/images/E_Class_Exterior.png");
+  background-position: center 56%;
 }
 
 .fleet-image-vclass {
-  background: url("assets/images/V_Class_Exterior.png") center/cover;
+  background-image: url("assets/images/V_Class_Exterior.png");
+  background-position: center 52%;
 }
 
 .fleet-image-sclass-interior {
-  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes%20S-Class%20Interior%20%28W222%29.jpg") center/cover;
+  background-image: url("assets/images/S_Class_Interior.png");
+  background-position: center 52%;
 }
 
 .fleet-image-eclass-interior {
-  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/2023%20Mercedes-Benz%20E-Class%20interior.jpg") center/cover;
+  background-image: url("assets/images/E_Class_Interior.png");
+  background-position: center 48%;
 }
 
 .fleet-image-vclass-interior {
-  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz%20V-Class%20interior.jpg") center/cover;
+  background-image: url("assets/images/V_Class_Interior.png");
+  background-position: center 44%;
 }
 
 .fleet-body {
