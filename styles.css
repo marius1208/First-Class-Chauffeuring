@@ -594,8 +594,7 @@ h3 {
 }
 
 .hidden-field {
-  position: absolute;
-  left: -9999px;
+  display: none;
 }
 
 .booking-form input,
