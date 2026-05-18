@@ -207,12 +207,10 @@
         </div>
 
         <div class="contact-layout">
-          <form class="booking-form reveal" action="https://formsubmit.co/contact@1stclasschauffeuring.co.uk" method="POST">
-            <input type="hidden" name="_subject" value="New First Class Chauffeuring enquiry">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_autoresponse" value="Thank you for contacting First Class Chauffeuring. We have received your enquiry and will be in touch shortly.">
-            <input type="text" name="_honey" class="hidden-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <form class="booking-form reveal" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="ca56a15e-778c-41e9-9035-a9d168e4f1f7">
+            <input type="hidden" name="subject" value="New First Class Chauffeuring enquiry">
+            <input type="checkbox" name="botcheck" class="hidden-field" tabindex="-1" autocomplete="off" aria-hidden="true">
             <label>
               Name
               <input type="text" name="name" placeholder="Your full name" required>
@@ -230,8 +228,6 @@
               <textarea name="journey" rows="5" placeholder="Pickup location, destination, date, time, passengers, luggage and any special requirements" required></textarea>
             </label>
             <button class="button" type="submit">Send Enquiry</button>
-            <p class="form-status full-width" aria-live="polite"></p>
-            <a class="form-fallback full-width" href="mailto:contact@1stclasschauffeuring.co.uk">Email us directly</a>
           </form>
 
           <div class="contact-sidebar">
@@ -291,6 +287,6 @@
     </footer>
   </div>
 
-  <script src="script.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>
