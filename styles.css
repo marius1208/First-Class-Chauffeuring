@@ -283,6 +283,12 @@ h3 {
   box-shadow: 0 18px 34px rgba(194, 154, 67, 0.28);
 }
 
+.button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
 .button-sm {
   min-height: 44px;
   padding: 0 18px;
@@ -614,6 +620,32 @@ h3 {
   outline: none;
   border-color: rgba(212, 176, 94, 0.45);
   background: rgba(255, 255, 255, 0.04);
+}
+
+.form-status {
+  min-height: 1.6em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.form-status[data-status="success"] {
+  color: #d7f5cc;
+}
+
+.form-status[data-status="error"] {
+  color: #ffd0c6;
+}
+
+.form-fallback {
+  display: none;
+  width: fit-content;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.form-fallback.is-visible {
+  display: inline-flex;
 }
 
 .footer {
