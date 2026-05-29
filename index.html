@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -34,6 +35,7 @@
       <nav id="site-nav" class="site-nav">
         <a href="#services">Services</a>
         <a href="#fleet">Fleet</a>
+        <a href="#fare-calculator">Estimate</a>
         <a href="#about">About</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#footer-contact">Contact</a>
@@ -199,6 +201,90 @@
         </div>
       </section>
 
+      <section id="fare-calculator" class="section fare-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Fare Estimate</p>
+          <h2>Get an idea before you enquire</h2>
+          <p>Use the calculator for an instant guide price, then send the details through for a confirmed quote.</p>
+        </div>
+
+        <div class="fare-calculator reveal">
+          <div class="fare-controls" aria-label="Fare estimate controls">
+            <div class="fare-field fare-field-wide">
+              <label for="fareAirport">Common Airport Rate</label>
+              <select id="fareAirport">
+                <option value="">Custom route</option>
+                <option value="luton">Northampton to London Luton (LTN)</option>
+                <option value="birmingham">Northampton to Birmingham (BHX)</option>
+                <option value="heathrow">Northampton to London Heathrow (HTR)</option>
+                <option value="east-midlands">Northampton to East Midlands (EMA)</option>
+                <option value="stansted">Northampton to London Stansted (STN)</option>
+                <option value="gatwick">Northampton to London Gatwick (LGW)</option>
+              </select>
+            </div>
+
+            <div class="fare-field fare-field-wide">
+              <label for="farePickup">Starting Location</label>
+              <input id="farePickup" type="text" placeholder="Enter pickup address or place" autocomplete="off">
+              <div class="fare-suggestions" id="farePickupSuggestions"></div>
+            </div>
+
+            <div class="fare-field fare-field-wide">
+              <label for="fareDropoff">End Location</label>
+              <input id="fareDropoff" type="text" placeholder="Enter destination address or place" autocomplete="off">
+              <div class="fare-suggestions" id="fareDropoffSuggestions"></div>
+            </div>
+
+            <div class="fare-field">
+              <label for="fareVehicle">Vehicle</label>
+              <select id="fareVehicle">
+                <option value="e-class-four">Mercedes E-Class (4)</option>
+                <option value="s-class-four">Mercedes S-Class (4)</option>
+                <option value="v-class-seven">Mercedes V-Class (7)</option>
+              </select>
+            </div>
+
+            <label class="fare-check">
+              <input id="fareReturn" type="checkbox">
+              Return journey
+            </label>
+
+            <button class="button fare-calculate" type="button" id="fareCalculate">Calculate Route</button>
+          </div>
+
+          <div class="fare-map-panel">
+            <div class="fare-map" id="fareMap" role="img" aria-label="Route map">
+              <p id="fareMapMessage">Add a Geoapify API key to enable route search.</p>
+            </div>
+
+            <div class="fare-result" aria-live="polite">
+              <span class="fare-result-label">Estimated Fare</span>
+              <strong id="fareTotal">Enter route</strong>
+              <dl class="fare-breakdown">
+                <div>
+                  <dt>Vehicle</dt>
+                  <dd id="fareVehicleLabel">Mercedes E-Class (4)</dd>
+                </div>
+                <div>
+                  <dt>Distance</dt>
+                  <dd id="fareDistanceLabel">Awaiting route</dd>
+                </div>
+                <div>
+                  <dt>Duration</dt>
+                  <dd id="fareDurationLabel">Awaiting route</dd>
+                </div>
+                <div>
+                  <dt>Rate</dt>
+                  <dd id="fareRateLabel">Awaiting route</dd>
+                </div>
+              </dl>
+              <p id="fareStatus">Choose a starting location and destination to calculate a guide fare.</p>
+              <button class="button" type="button" id="fareAddToEnquiry" disabled>Add to Enquiry</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" class="section contact-section">
         <div class="section-heading reveal">
           <p class="eyebrow">Contact &amp; Booking</p>
@@ -210,6 +296,7 @@
           <form class="booking-form reveal" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="ca56a15e-778c-41e9-9035-a9d168e4f1f7">
             <input type="hidden" name="subject" value="New First Class Chauffeuring enquiry">
+            <input type="hidden" name="fare_estimate" id="fareEstimateField" value="No fare estimate requested">
             <input type="checkbox" name="botcheck" class="hidden-field" tabindex="-1" autocomplete="off" aria-hidden="true">
             <label>
               Name
@@ -287,6 +374,10 @@
     </footer>
   </div>
 
+  <script>
+    window.FCC_GEOAPIFY_API_KEY = "e0875bd18f6b42d9abc41171a23100b2";
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="site.js"></script>
 </body>
 </html>
